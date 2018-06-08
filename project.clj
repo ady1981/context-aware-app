@@ -7,6 +7,8 @@
                  [org.clojure/clojure "1.8.0"]
 
                  [org.clojure/core.match "0.3.0-alpha4"]
+
+                 [crypto-random "1.2.0"]
                  ]
   :profiles {
              :dev     {:source-paths ["env/dev"]}
