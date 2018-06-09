@@ -11,18 +11,24 @@
 
 ;; [:error {:type type, :details details, :class class_name}]
 (defn exception-error [^Throwable e]
-  (let [details (ex-data e)
+  (let [data (ex-data e)
         [type details] (cond
 
-                         (and (instance? IExceptionInfo e) (map? details))
-                         [(get details :type :exception) details]
+                         (and (instance? IExceptionInfo e) (map? data))
+                         [(get data :type :exception) (:details data)]
 
                          (instance? IExceptionInfo e)
-                         [:exception details]
+                         [:exception data]
 
                          :default
                          [:exception {:message (str e)}])]
     [:error {:type type, :details details, :class (.getName (class e))}]))
+
+
+(defn throw-exception [type & [ details ]]
+  (let [data {:type type, :details details}]
+    (throw
+      (ex-info "bussiness exception" data))))
 
 
 ;; [:ok updated_context] | [:error reason]
