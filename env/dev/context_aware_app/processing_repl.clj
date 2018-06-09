@@ -5,7 +5,8 @@
 
     [context-aware-app.lot.db :as lot-db]
 
-    [context-aware-app.processing :refer :all]))
+    [context-aware-app.processing :refer :all]
+    [context-aware-app.util :as util]))
 
 #_(user-db/enumerate)
 #_(user-db/find-by-id "1")
@@ -23,5 +24,13 @@
 
 #_(buy-lot "1" "1")
 #_(buy-lot "1" "2")
+#_(buy-lot "1" "3")
 #_(buy-lot "4" "1")
 #_(buy-lot "1" "4")
+
+
+;;;;
+#_(try
+  (util/throw-exception :invalid_xxx :invalid_value)
+  (catch Throwable e
+    (util/exception-error e)))
