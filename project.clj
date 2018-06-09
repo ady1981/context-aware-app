@@ -10,9 +10,15 @@
 
                  [crypto-random "1.2.0"]
                  ]
+
+  :source-paths ["src"]
+
+  :resource-paths ["resources"]
+
+  :main context-aware-app.core
+
   :profiles {
              :dev     {:source-paths ["env/dev"]}
 
              :uberjar {:env {:production "true"}
-                       :omit-source true}}
-  )
+                       :omit-source true}})

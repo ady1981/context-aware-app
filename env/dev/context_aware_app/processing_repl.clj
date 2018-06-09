@@ -34,3 +34,8 @@
   (util/throw-exception :invalid_xxx :invalid_value)
   (catch Throwable e
     (util/exception-error e)))
+
+;;;;
+
+(context-aware-app.user.db/enumerate)
+
