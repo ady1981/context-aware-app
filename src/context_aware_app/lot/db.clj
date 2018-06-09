@@ -6,11 +6,15 @@
 (def db
   (atom {:db (->> [(entry/create "1" "Apple" 10)
                    (entry/create "2" "Banana" 20)
-                   (entry/create "3" "Nuts" 30)]
+                   (entry/create "3" "Nuts" 80)]
                   (util/index-by :id))}))
 
 
 (defn find-by-id [lot_id]
+
+  (when (> (rand) 0.5)                                      ;; TODO: remove
+    (util/throw-exception :cannot_find_lot :test_details))
+
   (if-let [lot (get-in @db [:db lot_id])]
     [:ok lot]
     [:error {:type :invalid_lot, :details :not_found}]))
