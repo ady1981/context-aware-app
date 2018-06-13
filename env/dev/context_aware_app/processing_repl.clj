@@ -37,5 +37,9 @@
 
 ;;;;
 
-(context-aware-app.user.db/enumerate)
-
+#_(context-aware-app.user.db/enumerate)
+#_(context-aware-app.lot.db/enumerate)
+#_(context-aware-app.processing/buy-lot "1" "1")
+#_(context-aware-app.processing/buy-lot "1" "2")
+#_(context-aware-app.processing/buy-lot "1" "3")
+#_(user-db/find-by-id "1")

@@ -12,7 +12,7 @@
 
 (defn find-by-id [lot_id]
 
-  (when (> (rand) 0.5)                                      ;; TODO: remove
+  #_(when (> (rand) 0.5)                                      ;; TODO: remove
     (util/throw-exception :cannot_find_lot :test_details))
 
   (if-let [lot (get-in @db [:db lot_id])]
